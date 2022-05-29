@@ -9,33 +9,22 @@ import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("azurahat129@gmail.com");
-  const [password, setPassword] = useState("rrrrrr");
+  const [password, setPassword] = useState("gggggg");
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
-    let intended = history.location.state;
-    if (intended) {
-      return;
-    } else {
-      if (user && user.token) history.push("/");
-    }
+    if (user && user.token) history.push("/");
   }, [user, history]);
 
   let dispatch = useDispatch();
 
   const roleBasedRedirect = (res) => {
-    // check if intended
-    let intended = history.location.state;
-    if (intended) {
-      history.push(intended.from);
+    if (res.data.role === "admin") {
+      history.push("/admin/dashboard");
     } else {
-      if (res.data.role === "admin") {
-        history.push("/admin/dashboard");
-      } else {
-        history.push("/user/history");
-      }
+      history.push("/user/history");
     }
   };
 
@@ -45,7 +34,7 @@ const Login = ({ history }) => {
     // console.table(email, password);
     try {
       const result = await auth.signInWithEmailAndPassword(email, password);
-      // //console.log(result);
+      // console.log(result);
       const { user } = result;
       const idTokenResult = await user.getIdTokenResult();
 
@@ -67,7 +56,7 @@ const Login = ({ history }) => {
 
       // history.push("/");
     } catch (error) {
-      //console.log(error);
+      console.log(error);
       toast.error(error.message);
       setLoading(false);
     }
@@ -97,7 +86,7 @@ const Login = ({ history }) => {
         // history.push("/");
       })
       .catch((err) => {
-        //console.log(err);
+        console.log(err);
         toast.error(err.message);
       });
   };
