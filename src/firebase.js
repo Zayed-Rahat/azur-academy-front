@@ -1,11 +1,11 @@
-/* import * as firebase from "firebase"; */
-import firebase from "firebase/app";
-import "firebase/auth"
+import * as firebase from "firebase";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCvH2Gf7BZW_KHfSY-3crAss_niyS7mYkM",
   authDomain: "azur-academy.firebaseapp.com",
+  databaseURL: "https://azur-academy.firebaseio.com",
   projectId: "azur-academy",
   storageBucket: "azur-academy.appspot.com",
   messagingSenderId: "5305211792",
