@@ -1,5 +1,5 @@
-import * as firebase from "firebase";
-
+import firebase from "firebase/app";
+import "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -9,9 +9,8 @@ const firebaseConfig = {
   projectId: "azur-academy",
   storageBucket: "azur-academy.appspot.com",
   messagingSenderId: "5305211792",
-  appId: "1:5305211792:web:d3c085c87d7472522e3115"
+  appId: "1:5305211792:web:3feabc168cfaf3112e3115"
 };
-  
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
