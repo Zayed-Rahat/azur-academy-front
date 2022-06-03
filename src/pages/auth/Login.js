@@ -4,10 +4,11 @@ import { toast } from "react-toastify";
 import { Button } from "antd";
 import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
-  const [email, setEmail] = useState("azurahat129@gmail.com");
+  const [email, setEmail] = useState("gqlreactnode@gmail.com");
   const [password, setPassword] = useState("gggggg");
   const [loading, setLoading] = useState(false);
 
@@ -151,6 +152,10 @@ const Login = ({ history }) => {
           >
             Login with Google
           </Button>
+
+          <Link to="/forgot/password" className="float-right text-danger">
+            Forgot Password
+          </Link>
         </div>
       </div>
     </div>

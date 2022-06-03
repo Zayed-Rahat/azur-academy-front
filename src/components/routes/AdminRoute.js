@@ -12,11 +12,11 @@ const AdminRoute = ({ children, ...rest }) => {
     if (user && user.token) {
       currentAdmin(user.token)
         .then((res) => {
-          //console.log("CURRENT ADMIN RES", res);
+          console.log("CURRENT ADMIN RES", res);
           setOk(true);
         })
         .catch((err) => {
-          //console.log("ADMIN ROUTE ERR", err);
+          console.log("ADMIN ROUTE ERR", err);
           setOk(false);
         });
     }
