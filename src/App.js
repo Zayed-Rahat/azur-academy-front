@@ -4,12 +4,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Login from "./pages/auth/Login";
-/* import Register from "./pages/auth/Register";
-import RegisterComplete from "./pages/auth/RegisterComplete";
-import ForgotPassword from "./pages/auth/ForgotPassword"; */
+import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Header from "./components/nav/Header";
-
+import RegisterComplete from "./pages/auth/RegisterComplete";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 import History from "./pages/user/History";
 import UserRoute from "./components/routes/UserRoute";
 import AdminRoute from "./components/routes/AdminRoute";
@@ -20,6 +19,7 @@ import CategoryCreate from "./pages/admin/category/CategoryCreate";
 import CategoryUpdate from "./pages/admin/category/CategoryUpdate";
 import SubCreate from "./pages/admin/sub/SubCreate";
 import SubUpdate from "./pages/admin/sub/SubUpdate";
+import ProductCreate from "./pages/admin/product/ProductCreate";
 
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
@@ -62,7 +62,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-     {/*    <Route exact path="/register" component={Register} />
+      {/*   <Route exact path="/register" component={Register} />
         <Route exact path="/register/complete" component={RegisterComplete} />
         <Route exact path="/forgot/password" component={ForgotPassword} /> */}
         <UserRoute exact path="/user/history" component={History} />
@@ -77,6 +77,7 @@ const App = () => {
         />
         <AdminRoute exact path="/admin/sub" component={SubCreate} />
         <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
+        <AdminRoute exact path="/admin/product" component={ProductCreate} />
       </Switch>
     </>
   );
