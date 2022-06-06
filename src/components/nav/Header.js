@@ -41,7 +41,12 @@ const Header = () => {
       <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
       </Item>
-
+{/* 
+      {!user && (
+        <Item key="register" icon={<UserAddOutlined />} className="float-right">
+          <Link to="/register">Register</Link>
+        </Item>
+      )} */}
 
       {!user && (
         <Item key="login" icon={<UserOutlined />} className="float-right">
