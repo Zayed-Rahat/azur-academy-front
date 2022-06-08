@@ -3,24 +3,25 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-const ProductCreateForm = ({
+const ProductUpdateForm = ({
   handleSubmit,
   handleChange,
   setValues,
   values,
-  handleCatagoryChange,
+  handleCategoryChange,
+  categories,
   subOptions,
-  showSub,
+  arrayOfSubs,
+  setArrayOfSubs,
+  selectedCategory,
 }) => {
   // destructure
   const {
     title,
     description,
     price,
-    categories,
-    subs,
+    category,
     quantity,
-
   } = values;
 
   return (
@@ -58,7 +59,6 @@ const ProductCreateForm = ({
         />
       </div>
 
-
       <div className="form-group">
         <label>Quantity</label>
         <input
@@ -76,9 +76,9 @@ const ProductCreateForm = ({
         <select
           name="category"
           className="form-control"
-          onChange={handleCatagoryChange}
+          onChange={handleCategoryChange}
+          value={selectedCategory ? selectedCategory : category._id}
         >
-          <option>Please select</option>
           {categories.length > 0 &&
             categories.map((c) => (
               <option key={c._id} value={c._id}>
@@ -88,25 +88,23 @@ const ProductCreateForm = ({
         </select>
       </div>
 
-      {showSub && (
-        <div>
-          <label>Sub Categories</label>
-          <Select
-            mode="multiple"
-            style={{ width: "100%" }}
-            placeholder="Please select"
-            value={subs}
-            onChange={(value) => setValues({ ...values, subs: value })}
-          >
-            {subOptions.length &&
-              subOptions.map((s) => (
-                <Option key={s._id} value={s._id}>
-                  {s.name}
-                </Option>
-              ))}
-          </Select>
-        </div>
-      )}
+      <div>
+        <label>Sub Categories</label>
+        <Select
+          mode="multiple"
+          style={{ width: "100%" }}
+          placeholder="Please select"
+          value={arrayOfSubs}
+          onChange={(value) => setArrayOfSubs(value)}
+        >
+          {subOptions.length &&
+            subOptions.map((s) => (
+              <Option key={s._id} value={s._id}>
+                {s.name}
+              </Option>
+            ))}
+        </Select>
+      </div>
 
       <br />
       <button className="btn btn-outline-info">Save</button>
@@ -114,4 +112,4 @@ const ProductCreateForm = ({
   );
 };
 
-export default ProductCreateForm;
+export default ProductUpdateForm;
