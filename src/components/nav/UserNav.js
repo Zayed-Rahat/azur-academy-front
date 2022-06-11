@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
+
+const Nav = styled.nav`
+font-size: 1em;
+margin: 0.5em;
+border-radius: 3px;
+background-color: #03072b;
+`
 const UserNav = () => (
-  <nav>
+  <Nav>
     <ul className="nav flex-column">
       <li className="nav-item">
         <Link to="/user/history" className="nav-link">
@@ -22,7 +30,7 @@ const UserNav = () => (
         </Link>
       </li>
     </ul>
-  </nav>
+  </Nav>
 );
 
 export default UserNav;

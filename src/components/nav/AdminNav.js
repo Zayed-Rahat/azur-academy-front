@@ -1,52 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+
 const AdminNav = () => (
-  <nav>
-    <ul className="nav flex-column">
+  <nav class="navbar">
+        <ul className="nav flex-column">
       <li className="nav-item">
-        <Link to="/admin/dashboard" className="nav-link">
+        <Link to="/admin/dashboard" className="nav-link bg-primary text-white font-weight-bold" >
           Dashboard
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/admin/product" className="nav-link">
+        <Link to="/admin/product" className="nav-link bg-primary text-white font-weight-bold">
          Add Course
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/admin/products" className="nav-link">
+        <Link to="/admin/products" className="nav-link bg-primary text-white font-weight-bold">
         All  Courses
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/admin/category" className="nav-link">
+        <Link to="/admin/category" className="nav-link bg-primary text-white font-weight-bold">
           Category
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/admin/sub" className="nav-link">
+        <Link to="/admin/sub" className="nav-link bg-primary text-white font-weight-bold">
           Sub Category
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/admin/coupon" className="nav-link">
+        <Link to="/admin/coupon" className="nav-link bg-primary text-white font-weight-bold">
           Coupon
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/user/password" className="nav-link">
+        <Link to="/admin/password" className="nav-link bg-primary text-white font-weight-bold">
           Password
         </Link>
       </li>
     </ul>
-  </nav>
+    </nav>
 );
 
 export default AdminNav;

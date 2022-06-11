@@ -36,15 +36,15 @@ const Header = () => {
   };
 
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" theme="dark">
-      <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Skill Up</Link>
+    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" className="nav-link bg-primary">
+      <Item key="home" className="text-white" icon={<AppstoreOutlined />}>
+        <Link className="text-white font-weight-bold" to="/">Skill Up</Link>
       </Item>
 
 
       {!user && (
         <Item key="login" icon={<UserOutlined />} className="float-right">
-          <Link to="/login">Login</Link>
+          <Link className="text-white font-weight-bold" to="/login">Login</Link>
         </Item>
       )}
 
@@ -52,17 +52,18 @@ const Header = () => {
         <SubMenu
           icon={<SettingOutlined />}
           title={user.email && user.email.split("@")[0]}
-          className="float-right"
+          className="float-right text-white font-weight-bold"
+
         >
           {user && user.role === "subscriber" && (
             <Item>
-              <Link to="/user/history">Dashboard</Link>
+              <Link className="text-dark font-weight-bold" to="/user/history">Dashboard</Link>
             </Item>
           )}
 
           {user && user.role === "admin" && (
             <Item>
-              <Link to="/admin/dashboard">Dashboard</Link>
+              <Link className="text-dark font-weight-bold" to="/admin/dashboard">Dashboard</Link>
             </Item>
           )}
 
