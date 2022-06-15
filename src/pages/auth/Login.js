@@ -8,23 +8,34 @@ import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
-  const [email, setEmail] = useState("u1804088@student.cuet.ac.bd");
-  const [password, setPassword] = useState("ndc321");
+  const [email, setEmail] = useState("gqlreactnode@gmail.com");
+  const [password, setPassword] = useState("gggggg");
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
-    if (user && user.token) history.push("/");
+    let intended = history.location.state;
+    if (intended) {
+      return;
+    } else {
+      if (user && user.token) history.push("/");
+    }
   }, [user, history]);
 
   let dispatch = useDispatch();
 
   const roleBasedRedirect = (res) => {
-    if (res.data.role === "admin") {
-      history.push("/admin/dashboard");
+    // check if intended
+    let intended = history.location.state;
+    if (intended) {
+      history.push(intended.from);
     } else {
-      history.push("/user/history");
+      if (res.data.role === "admin") {
+        history.push("/admin/dashboard");
+      } else {
+        history.push("/user/history");
+      }
     }
   };
 
