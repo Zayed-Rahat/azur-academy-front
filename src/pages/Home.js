@@ -6,6 +6,8 @@ import BestSellers from "../components/home/BestSellers";
 const Home = () => {
   return (
     <>
+    <br/>
+    <br/>
       <div className="jumbotron text-danger h1 font-weight-bold text-center">
         <Jumbotron text={["Latest Products", "New Arrivals", "Best Sellers"]} />
       </div>

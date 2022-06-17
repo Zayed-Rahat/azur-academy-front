@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
-
-
+/* import styled from 'styled-components';
+ */
+/* 
 const Nav = styled.nav`
 font-size: 1em;
 margin: 0.5em;
 border-radius: 3px;
 background-color: #03072b;
-`
+` */
 const UserNav = () => (
   <Nav>
     <ul className="nav flex-column">
