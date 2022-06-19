@@ -1,36 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-/* import styled from 'styled-components';
- */
-/* 
-const Nav = styled.nav`
-font-size: 1em;
-margin: 0.5em;
-border-radius: 3px;
-background-color: #03072b;
-` */
+
 const UserNav = () => (
-  <Nav>
+  <nav className="navbar">
     <ul className="nav flex-column">
       <li className="nav-item">
-        <Link to="/user/history" className="nav-link">
+        <Link to="/user/history"  className="nav-link bg-primary text-white font-weight-bold">
           History
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/user/password" className="nav-link">
+        <Link to="/user/password"  className="nav-link bg-primary text-white font-weight-bold">
           Password
         </Link>
       </li>
 
       <li className="nav-item">
-        <Link to="/user/wishlist" className="nav-link">
+        <Link to="/user/wishlist" className="nav-link bg-primary text-white font-weight-bold">
           Wishlist
         </Link>
       </li>
     </ul>
-  </Nav>
+  </nav>
 );
 
 export default UserNav;
