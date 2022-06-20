@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
-  const [email, setEmail] = useState("gqlreactnode@gmail.com");
-  const [password, setPassword] = useState("gggggg");
+  const [email, setEmail] = useState("u1804088@student.cuet.ac.bd");
+  const [password, setPassword] = useState("ndc@4321");
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => ({ ...state }));
@@ -163,10 +163,6 @@ const Login = ({ history }) => {
           >
             Login with Google
           </Button>
-
-          <Link to="/forgot/password" className="float-right text-danger">
-            Forgot Password
-          </Link>
         </div>
       </div>
     </div>
