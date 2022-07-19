@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const UserNav = () => (
-  <nav className="navbar">
+  <nav className="navbar bg-primary">
     <ul className="nav flex-column">
       <li className="nav-item">
         <Link to="/user/history"  className="nav-link bg-primary text-white font-weight-bold">

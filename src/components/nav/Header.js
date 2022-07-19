@@ -44,12 +44,12 @@ const Header = () => {
         <Link to="/">Home</Link>
       </Item>
 
-      <Item key="shop" icon={<ShoppingOutlined />}>
+      <Item key="shop" icon={<ShoppingOutlined />} className="float-right">
         <Link to="/shop">Shop</Link>
       </Item>
 
       {!user && (
-        <Item key="register" icon={<UserAddOutlined />} className="float-right">
+        <Item key="register" icon={<UserAddOutlined />} >
           <Link to="/register">Register</Link>
         </Item>
       )}

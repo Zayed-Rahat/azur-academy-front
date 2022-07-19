@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AdminNav = () => (
-  <nav className="navbar">
+  <nav className="navbar bg-primary ">
         <ul className="nav flex-column">
-      <li className="nav-item">
+      <li className="nav-item ">
         <Link to="/admin/dashboard" className="nav-link bg-primary text-white font-weight-bold" >
           Dashboard
         </Link>

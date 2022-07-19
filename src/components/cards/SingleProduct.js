@@ -62,7 +62,7 @@ const SingleProduct = ({ product, onStarClick, star }) => {
                 rating={star}
                 changeRating={onStarClick}
                 isSelectable={true}
-                starRatedColor="red"
+                starRatedColor="green"
               />
             </RatingModal>,
           ]}
