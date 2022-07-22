@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/cards/ProductCard";
 import { Menu, Slider, Checkbox } from "antd";
 import {
-  DollarOutlined,
   DownSquareOutlined,
   StarOutlined,
 } from "@ant-design/icons";

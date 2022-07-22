@@ -26,7 +26,7 @@ const Header = () => {
   let history = useHistory();
 
   const handleClick = (e) => {
-    // //console.log(e.key);
+    // console.log(e.key);
     setCurrent(e.key);
   };
 
@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
       <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Skill Up Academy</Link>
+        <Link to="/">Home</Link>
       </Item>
 
       <Item key="shop" icon={<ShoppingOutlined />}>
@@ -51,7 +51,9 @@ const Header = () => {
 
       <Item key="cart" icon={<ShoppingCartOutlined />}>
         <Link to="/cart">
-          Cart
+          <Badge count={cart.length} offset={[9, 0]}>
+            Cart
+          </Badge>
         </Link>
       </Item>
 

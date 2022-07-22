@@ -12,6 +12,7 @@ const BestSellers = () => {
 
   useEffect(() => {
     loadAllProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
