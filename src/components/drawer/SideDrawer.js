@@ -33,14 +33,14 @@ const SideDrawer = () => {
           <div className="col">
             {p.images[0] ? (
               <>
-                <img src={p.images[0].url} style={imageStyle} />
+                <img src={p.images[0].url} style={imageStyle} alt=""/>
                 <p className="text-center bg-secondary text-light">
                   {p.title} x {p.count}
                 </p>
               </>
             ) : (
               <>
-                <img src={laptop} style={imageStyle} />
+                <img src={laptop} style={imageStyle} alt="" />
                 <p className="text-center bg-secondary text-light">
                   {p.title} x {p.count}
                 </p>

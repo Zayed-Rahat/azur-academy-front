@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCardInCheckout from "../components/cards/ProductCardInCheckout";
+import { userCart } from "../functions/user";
 
-const Cart = () => {
+const Cart = ({ history }) => {
   const { cart, user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
 
@@ -14,7 +15,13 @@ const Cart = () => {
   };
 
   const saveOrderToDb = () => {
-    //
+    // console.log("cart", JSON.stringify(cart, null, 4));
+    userCart(cart, user.token)
+      .then((res) => {
+        console.log("CART POST RES", res);
+        if (res.data.ok) history.push("/checkout");
+      })
+      .catch((err) => console.log("cart save err", err));
   };
 
   const showCartItems = () => (
@@ -24,6 +31,10 @@ const Cart = () => {
           <th scope="col">Image</th>
           <th scope="col">Title</th>
           <th scope="col">Price</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Color</th>
+          <th scope="col">Count</th>
+          <th scope="col">Shipping</th>
           <th scope="col">Remove</th>
         </tr>
       </thead>
@@ -55,12 +66,12 @@ const Cart = () => {
           {cart.map((c, i) => (
             <div key={i}>
               <p>
-                {c.title} x {c.count} = BDT {c.price * c.count}
+                {c.title} x {c.count} = ${c.price * c.count}
               </p>
             </div>
           ))}
           <hr />
-          Total: <b>BDT {getTotal()}</b>
+          Total: <b>${getTotal()}</b>
           <hr />
           {user ? (
             <button

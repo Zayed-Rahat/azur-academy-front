@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Card, Tooltip } from "antd";
 import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
@@ -43,6 +42,11 @@ const ProductCard = ({ product }) => {
         type: "ADD_TO_CART",
         payload: unique,
       });
+      // show cart items in side drawer
+      dispatch({
+        type: "SET_VISIBLE",
+        payload: true,
+      });
     }
   };
 
@@ -61,7 +65,7 @@ const ProductCard = ({ product }) => {
           <img
             src={images && images.length ? images[0].url : laptop}
             style={{ height: "150px", objectFit: "cover" }}
-            className="p-1" alt=""
+            className="p-1"
           />
         }
         actions={[
