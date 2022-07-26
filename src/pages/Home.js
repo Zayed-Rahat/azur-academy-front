@@ -11,6 +11,11 @@ const Home = () => {
       <div className="jumbotron text-primary h1 font-weight-bold text-center">
         <Jumbotron text={[ "New Arrivals","Latest Courses", "Best Sellers"]} />
       </div>
+{/*       <h4 className="text-center font-weight-bold p-1 mt-2 mb-2 display-4 jumbotron">
+        Categories
+      </h4>
+      <CategoryList /> */}
+
 
       <h4 className="text-center font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
         New Arrivals
@@ -22,10 +27,7 @@ const Home = () => {
       </h4>
       <BestSellers />
 
-      <h4 className="text-center font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
-        Categories
-      </h4>
-      <CategoryList />
+      
 
       <h4 className="text-center font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
         Sub Categories

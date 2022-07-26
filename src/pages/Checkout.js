@@ -4,9 +4,12 @@ import { toast } from "react-toastify";
 import { getUserCart, emptyUserCart, saveUserAddress } from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { getCategories } from "../functions/category";
+
 
 const Checkout = () => {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [total, setTotal] = useState(0);
   const [address, setAddress] = useState("");
   const [addressSaved, setAddressSaved] = useState(false);
@@ -16,10 +19,15 @@ const Checkout = () => {
 
   useEffect(() => {
     getUserCart(user.token).then((res) => {
-      console.log("user cart res", JSON.stringify(res.data, null, 4));
+     // console.log("user cart res", JSON.stringify(res.data, null, 4));
       setProducts(res.data.products);
       setTotal(res.data.cartTotal);
     });
+
+   getCategories().then((c) => {
+      setCategories(c.data);
+    });
+
   }, []);
 
   const emptyCart = () => {
@@ -56,10 +64,11 @@ const Checkout = () => {
         <h4>Delivery Address</h4>
         <br />
         <br />
-        <ReactQuill theme="snow" value={address} onChange={setAddress} />
+        <ReactQuill theme="snow" value={address}  onChange={setAddress} />
         <button className="btn btn-primary mt-2" onClick={saveAddressToDb}>
-          Save
+          Save 
         </button>
+        
         <hr />
         <h4>Got Coupon?</h4>
         <br />
@@ -69,18 +78,18 @@ const Checkout = () => {
       <div className="col-md-6">
         <h4>Order Summary</h4>
         <hr />
-        <p>Products {products.length}</p>
+        <p className="font-weight-bold">Products {products.length}</p>
         <hr />
         {products.map((p, i) => (
           <div key={i}>
             <p>
-              {p.product.title} x {p.count} ={" "}
-              {p.product.price * p.count}
+              {p.product.title} =
+             BDT {p.product.price}
             </p>
           </div>
         ))}
         <hr />
-        <p>Cart Total: {total}</p>
+        <p className="font-weight-bold text-danger">Total : BDT {total}</p>
 
         <div className="row">
           <div className="col-md-6">
@@ -96,7 +105,7 @@ const Checkout = () => {
             <button
               disabled={!products.length}
               onClick={emptyCart}
-              className="btn btn-primary"
+              className="btn btn-danger"
             >
               Empty Cart
             </button>

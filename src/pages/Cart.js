@@ -31,10 +31,6 @@ const Cart = ({ history }) => {
           <th scope="col">Image</th>
           <th scope="col">Title</th>
           <th scope="col">Price</th>
-          <th scope="col">Brand</th>
-          <th scope="col">Color</th>
-          <th scope="col">Count</th>
-          <th scope="col">Shipping</th>
           <th scope="col">Remove</th>
         </tr>
       </thead>
@@ -48,8 +44,8 @@ const Cart = ({ history }) => {
   return (
     <div className="container-fluid pt-2">
       <div className="row">
-        <div className="col-md-8">
-          <h4>Cart / {cart.length} Product</h4>
+        <div className="col-md-6">
+          <h4>Cart / {cart.length} Products</h4>
 
           {!cart.length ? (
             <p>
@@ -59,30 +55,30 @@ const Cart = ({ history }) => {
             showCartItems()
           )}
         </div>
-        <div className="col-md-4">
-          <h4>Order Summary</h4>
+        <div className="col-md-6">
+          <h4>Summary</h4>
           <hr />
-          <p>Products</p>
+          <h6>Courses/Books</h6>
           {cart.map((c, i) => (
             <div key={i}>
               <p>
-                {c.title} x {c.count} = ${c.price * c.count}
+               <b>{i+1}.</b> {c.title} = {c.price} BDT
               </p>
             </div>
           ))}
           <hr />
-          Total: <b>${getTotal()}</b>
+         <b className="font-weight-bold"> Total: BDT {getTotal()}</b>
           <hr />
           {user ? (
             <button
               onClick={saveOrderToDb}
-              className="btn btn-sm btn-primary mt-2"
+              className="btn btn-sm btn-danger mt-2"
               disabled={!cart.length}
             >
               Proceed to Checkout
             </button>
           ) : (
-            <button className="btn btn-sm btn-primary mt-2">
+            <button className="btn btn-sm btn-danger mt-2">
               <Link
                 to={{
                   pathname: "/login",

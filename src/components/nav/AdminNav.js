@@ -34,11 +34,11 @@ const AdminNav = () => (
         </Link>
       </li>
 
-    {/*   <li className="nav-item">
+   <li className="nav-item">
         <Link to="/admin/coupon" className="nav-link bg-primary text-white font-weight-bold">
           Coupon
         </Link>
-      </li> */}
+      </li> 
 
       <li className="nav-item">
         <Link to="/admin/password" className="nav-link bg-primary text-white font-weight-bold">

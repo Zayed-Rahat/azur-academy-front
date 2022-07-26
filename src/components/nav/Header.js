@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useEffect } from "react";
 import { Menu, Badge } from "antd";
 import {
   AppstoreOutlined,
@@ -14,11 +15,13 @@ import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Search from "../forms/Search";
+import { getCategories } from "../../functions/category";
 
 const { SubMenu, Item } = Menu;
 
 const Header = () => {
   const [current, setCurrent] = useState("home");
+  const [categories, setCategories] = useState([]);
 
   let dispatch = useDispatch();
   let { user, cart } = useSelector((state) => ({ ...state }));
@@ -29,6 +32,22 @@ const Header = () => {
     // console.log(e.key);
     setCurrent(e.key);
   };
+  useEffect(() => {
+    getCategories().then((c) => {
+      setCategories(c.data);
+    });
+  }, []);
+
+  const showCategories = () =>
+    categories.map((c) => (
+      <div
+        key={c._id}
+      >
+        <Item>
+        <Link to={`/category/${c.slug}`}>{c.name}</Link>
+      </Item>
+      </div>
+    ));
 
   const logout = () => {
     firebase.auth().signOut();
@@ -40,16 +59,27 @@ const Header = () => {
   };
 
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Home</Link>
-      </Item>
+    <>
+    
+  <button type="button" className="btn btn-primary" >
+    <Link to="/"><h6 className="d-flex  text-primary">Skill Up Academy</h6></Link>
+  </button>
 
-      <Item key="shop" icon={<ShoppingOutlined />}>
+    <Menu  onClick={handleClick} className="d-flex justify-content-end"  selectedKeys={[current]} mode="horizontal">
+
+       <SubMenu
+          icon={<ShoppingCartOutlined />}
+          title="Categories"
+        >
+             { showCategories() }
+        </SubMenu>
+
+      <Item key="shop" icon={<ShoppingOutlined/>} >
         <Link to="/shop">Shop</Link>
       </Item>
 
-      <Item key="cart" icon={<ShoppingCartOutlined />}>
+      <Item key="cart" 
+          icon={<ShoppingCartOutlined />}>
         <Link to="/cart">
           <Badge count={cart.length} offset={[9, 0]}>
             Cart
@@ -76,13 +106,13 @@ const Header = () => {
           className="float-right"
         >
           {user && user.role === "subscriber" && (
-            <Item>
+            <Item key="subscriber">
               <Link to="/user/history">Dashboard</Link>
             </Item>
           )}
 
           {user && user.role === "admin" && (
-            <Item>
+            <Item key="admin">
               <Link to="/admin/dashboard">Dashboard</Link>
             </Item>
           )}
@@ -93,10 +123,12 @@ const Header = () => {
         </SubMenu>
       )}
 
-      <span className="float-right p-1">
+       <span className="d-flex justify-content-center">
         <Search />
       </span>
-    </Menu>
+    </Menu> 
+  
+      </>
   );
 };
 
