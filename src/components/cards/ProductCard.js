@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
           <img
             src={images && images.length ? images[0].url : laptop}
             style={{ height: "150px", objectFit: "cover" }}
-            className="p-1"
+            className="p-1" alt=""
           />
         }
         actions={[
@@ -81,9 +81,9 @@ const ProductCard = ({ product }) => {
         ]}
       >
         <Meta
-          title={`${title} - $${price}`}
-          description={`${description && description.substring(0, 40)}...`}
-        />
+          title={`${title}`}
+          description={<b className="text-success">BDT {price}</b>}
+              />
       </Card>
     </>
   );

@@ -62,7 +62,7 @@ const Header = () => {
     <>
     
   <button type="button" className="btn btn-primary" >
-    <Link to="/"><h6 className="d-flex  text-primary">Skill Up Academy</h6></Link>
+    <Link to="/"><h6 className="d-flex  text-primary"><b>Skill Up Academy</b></h6></Link>
   </button>
 
     <Menu  onClick={handleClick} className="d-flex justify-content-end"  selectedKeys={[current]} mode="horizontal">
