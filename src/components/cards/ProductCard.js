@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Card, Tooltip } from "antd";
 import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
@@ -73,9 +74,9 @@ const ProductCard = ({ product }) => {
             <EyeOutlined className="text-warning" /> <br /> View Product
           </Link>,
           <Tooltip title={tooltip}>
-            <a onClick={handleAddToCart}>
-              <ShoppingCartOutlined className="text-danger" /> <br /> Add to
-              Cart
+            <a onClick={handleAddToCart} disabled={product.quantity < 1}>
+              <ShoppingCartOutlined className="text-danger" /> <br />
+              {product.quantity < 1 ? "Out of stock" : "Add to Cart"}
             </a>
           </Tooltip>,
         ]}
@@ -83,7 +84,7 @@ const ProductCard = ({ product }) => {
         <Meta
           title={`${title}`}
           description={<b className="text-success">BDT {price}</b>}
-              />
+        />
       </Card>
     </>
   );
