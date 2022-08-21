@@ -15,14 +15,13 @@ const Invoice = ({ order }) => (
         ~ {new Date().toLocaleString()} ~
       </Text>
       <Text style={styles.title}>Order Invoice</Text>
-      <Text style={styles.author}>React Redux Ecommerce</Text>
+      <Text style={styles.author}>SKILLUP ACADEMY</Text>
       <Text style={styles.subtitle}>Order Summary</Text>
 
       <Table>
         <TableHeader>
           <TableCell>Title</TableCell>
           <TableCell>Price</TableCell>
-          <TableCell>Quantity</TableCell>
         </TableHeader>
       </Table>
 
@@ -30,7 +29,6 @@ const Invoice = ({ order }) => (
         <TableBody>
           <DataTableCell getContent={(x) => x.product.title} />
           <DataTableCell getContent={(x) => `BDT${x.product.price}`} />
-          <DataTableCell getContent={(x) => x.count} />
         </TableBody>
       </Table>
 

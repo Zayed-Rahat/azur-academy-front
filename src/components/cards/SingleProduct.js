@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Card, Tabs, Tooltip } from "antd";
 import { Link } from "react-router-dom";
@@ -12,6 +11,9 @@ import RatingModal from "../modal/RatingModal";
 import { showAverage } from "../../functions/rating";
 import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
+import { addToWishlist } from "../../functions/user";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const { TabPane } = Tabs;
 
@@ -22,6 +24,8 @@ const SingleProduct = ({ product, onStarClick, star }) => {
   // redux
   const { user, cart } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
+  // router
+  let history = useHistory();
 
   const { title, images, description, _id } = product;
 
@@ -51,7 +55,21 @@ const SingleProduct = ({ product, onStarClick, star }) => {
         type: "ADD_TO_CART",
         payload: unique,
       });
+      // show cart items in side drawer
+      dispatch({
+        type: "SET_VISIBLE",
+        payload: true,
+      });
     }
+  };
+
+  const handleAddToWishlist = (e) => {
+    e.preventDefault();
+    addToWishlist(product._id, user.token).then((res) => {
+      console.log("ADDED TO WISHLIST", res.data);
+      toast.success("Added to wishlist");
+      history.push("/user/wishlist");
+    });
   };
 
   return (
@@ -59,10 +77,10 @@ const SingleProduct = ({ product, onStarClick, star }) => {
       <div className="col-md-7">
         {images && images.length ? (
           <Carousel showArrows={true} autoPlay infiniteLoop>
-            {images && images.map((i) => <img src={i.url} key={i.public_id} alt=" "/>)}
+            {images && images.map((i) => <img src={i.url} key={i.public_id} />)}
           </Carousel>
         ) : (
-          <Card cover={<img src={Laptop} className="mb-3 card-image" alt=" "/>}></Card>
+          <Card cover={<img src={Laptop} className="mb-3 card-image" />}></Card>
         )}
 
         <Tabs type="card">
@@ -86,15 +104,16 @@ const SingleProduct = ({ product, onStarClick, star }) => {
 
         <Card
           actions={[
-            <Tooltip title={tooltip}>
-              <a onClick={handleAddToCart}>
-                <ShoppingCartOutlined className="text-danger" /> <br /> Add to
-                Cart
+            <Tooltip placement="top" title={tooltip}>
+              <a onClick={handleAddToCart} disabled={product.quantity < 1}>
+                <ShoppingCartOutlined className="text-danger" />
+                <br />
+                {product.quantity < 1 ? "Out of Stock" : "Add To Cart"}
               </a>
             </Tooltip>,
-            <Link to="/">
+            <a onClick={handleAddToWishlist}>
               <HeartOutlined className="text-info" /> <br /> Add to Wishlist
-            </Link>,
+            </a>,
             <RatingModal>
               <StarRating
                 name={_id}
@@ -102,7 +121,7 @@ const SingleProduct = ({ product, onStarClick, star }) => {
                 rating={star}
                 changeRating={onStarClick}
                 isSelectable={true}
-                starRatedColor="green"
+                starRatedColor="red"
               />
             </RatingModal>,
           ]}
