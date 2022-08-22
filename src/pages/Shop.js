@@ -14,7 +14,7 @@ import {
 } from "@ant-design/icons";
 import Star from "../components/forms/Star";
 
-const { SubMenu, ItemGroup } = Menu;
+const { SubMenu} = Menu;
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
