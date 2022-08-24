@@ -87,7 +87,7 @@ const Cart = ({ history }) => {
             <>
               <button
                 onClick={saveOrderToDb}
-              className="btn btn-sm btn-danger mt-2"
+              className="btn btn-sm btn-success mt-2"
                 disabled={!cart.length}
               >
                 Proceed to Checkout
@@ -95,7 +95,7 @@ const Cart = ({ history }) => {
               <br />
               <button
                 onClick={saveCashOrderToDb}
-                className="btn btn-sm btn-warning mt-2"
+                className="btn btn-sm btn-primary mt-2"
                 disabled={!cart.length}
               >
                 Pay Cash on Delivery

@@ -52,12 +52,12 @@ const ProductListItems = ({ product }) => {
         </span>
       </li>
 
-      <li className="list-group-item">
+   {/*    <li className="list-group-item">
         Sold{" "}
         <span className="label label-default label-pill pull-xs-right">
           {sold}
         </span>
-      </li>
+      </li> */}
     </ul>
   );
 };
