@@ -5,7 +5,6 @@ import { createPaymentIntent } from "../functions/stripe";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
 import { DollarOutlined, CheckOutlined, SwapOutlined } from "@ant-design/icons";
-import Laptop from "../images/laptop.png";
 import { createOrder, emptyUserCart } from "../functions/user";
 
 const StripeCheckout = ({ history }) => {
@@ -119,7 +118,7 @@ const StripeCheckout = ({ history }) => {
       )}
       <div className="text-center pb-5">
         <Card
-          cover={
+          /* cover={
             <img
               src={Laptop}
               style={{
@@ -128,15 +127,21 @@ const StripeCheckout = ({ history }) => {
                 marginBottom: "-50px",
               }}
             />
-          }
+          } */
           actions={[
             <>
-              <DollarOutlined className="text-info" /> <br /> Total: $
-              {cartTotal}
+              <br />
+              <p className="text-success">
+                Total: BDT
+                {cartTotal}
+              </p>
             </>,
             <>
-              <CheckOutlined className="text-info" /> <br /> Total payable : $
-              {(payable / 100).toFixed(2)}
+              <CheckOutlined className="text-danger" /> <br />
+              <p className="text-success">
+                Total payable: BDT
+                {(payable / 100).toFixed(2)}
+              </p>
             </>,
           ]}
         />
