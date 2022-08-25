@@ -6,6 +6,7 @@ import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { currentUser } from "./functions/auth";
 import { LoadingOutlined } from "@ant-design/icons";
+import AdminPassword from "./pages/admin/AdminPassword";
 
 // using lazy
 const Login = lazy(() => import("./pages/auth/Login"));
@@ -75,7 +76,9 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense
+
+    <div style={{backgroundColor: "#bcd4ba"}}>
+<Suspense
       fallback={
         <div className="col text-center p-5">
           __ Skill Up
@@ -90,11 +93,12 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-{/*         <Route exact path="/register" component={Register} />
-        <Route exact path="/register/complete" component={RegisterComplete} /> */}
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/register/complete" component={RegisterComplete} />
         <Route exact path="/forgot/password" component={ForgotPassword} />
         <UserRoute exact path="/user/history" component={History} />
         <UserRoute exact path="/user/password" component={Password} />
+        <UserRoute exact path="/admin/password" component={AdminPassword} />
         <UserRoute exact path="/user/wishlist" component={Wishlist} />
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
         <AdminRoute exact path="/admin/category" component={CategoryCreate} />
@@ -122,6 +126,8 @@ const App = () => {
         <UserRoute exact path="/payment" component={Payment} />
       </Switch>
     </Suspense>
+    </div>
+    
   );
 };
 

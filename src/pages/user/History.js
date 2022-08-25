@@ -28,8 +28,6 @@ const History = () => {
         <tr>
           <th scope="col">Title</th>
           <th scope="col">Price</th>
-          <th scope="col">Count</th>
-          <th scope="col">Shipping</th>
         </tr>
       </thead>
 
@@ -40,14 +38,6 @@ const History = () => {
               <b>{p.product.title}</b>
             </td>
             <td>{p.product.price}</td>
-            <td>{p.count}</td>
-            <td>
-              {p.product.shipping === "Yes" ? (
-                <CheckCircleOutlined style={{ color: "green" }} />
-              ) : (
-                <CloseCircleOutlined style={{ color: "red" }} />
-              )}
-            </td>
           </tr>
         ))}
       </tbody>
