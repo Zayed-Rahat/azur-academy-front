@@ -73,10 +73,17 @@ const SingleProduct = ({ product, onStarClick, star }) => {
 
   return (
     <>
-      <div className="col-md-7">
+      <div className="col-md-6 mx-auto">
         {images && images.length ? (
           <Carousel showArrows={true} autoPlay infiniteLoop>
-            {images && images.map((i) => <img src={i.url} key={i.public_id} />)}
+            {images &&
+              images.map((i) => (
+                <img
+                  src={i.url}
+                  key={i.public_id}
+                  style={{height:"100%", width:"50%"}}
+                />
+              ))}
           </Carousel>
         ) : (
           <Card cover={<img src={Laptop} className="mb-3 card-image" />}></Card>

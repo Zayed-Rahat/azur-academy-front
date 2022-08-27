@@ -156,7 +156,7 @@ const Checkout = ({ history }) => {
   };
 
   return (
-    <div className="row">
+    <div className="row mx-auto">
       <div className="col-md-6">
         <h4>Delivery Address</h4>
         <br />

@@ -24,11 +24,11 @@ const SubHome = ({ match }) => {
       <div className="row">
         <div className="col">
           {loading ? (
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron">
+            <h4 className="text-center p-3 mt-5 mb-3 display-4 jumbotron">
               Loading...
             </h4>
           ) : (
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron">
+            <h4 className="text-center p-3 mt-5 mb-3 display-4 jumbotron">
               {products.length} Products in "{sub.name}" sub category
             </h4>
           )}
@@ -37,7 +37,9 @@ const SubHome = ({ match }) => {
 
       <div className="row">
         {products.map((p) => (
-          <div className="col" key={p._id}>
+          <div 
+          className="col-md-3 mx-auto"
+          key={p._id}>
             <ProductCard product={p} />
           </div>
         ))}

@@ -65,8 +65,8 @@ const ProductCard = ({ product }) => {
         cover={
           <img
             src={images && images.length ? images[0].url : laptop}
-            style={{ height: "150px", objectFit: "cover" }}
-            className="p-1" alt=""
+            style={{ height: "250px",width:"250px" }}
+            className="p-1 mx-auto" alt=""
           />
         }
         actions={[
