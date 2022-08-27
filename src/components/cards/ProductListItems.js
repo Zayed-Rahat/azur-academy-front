@@ -7,7 +7,6 @@ const ProductListItems = ({ product }) => {
     category,
     subs,
     quantity,
-    sold,
   } = product;
 
   return (

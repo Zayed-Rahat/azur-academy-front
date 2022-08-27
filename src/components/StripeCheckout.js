@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createPaymentIntent } from "../functions/stripe";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
-import { DollarOutlined, CheckOutlined, SwapOutlined } from "@ant-design/icons";
+import { CheckOutlined } from "@ant-design/icons";
 import { createOrder, emptyUserCart } from "../functions/user";
 
 const StripeCheckout = ({ history }) => {

@@ -21,7 +21,7 @@ const SingleProduct = ({ product, onStarClick, star }) => {
   const [tooltip, setTooltip] = useState("Click to add");
 
   // redux
-  const { user, cart } = useSelector((state) => ({ ...state }));
+  const { user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
   // router
   let history = useHistory();
@@ -82,11 +82,12 @@ const SingleProduct = ({ product, onStarClick, star }) => {
                   src={i.url}
                   key={i.public_id}
                   style={{height:"100%", width:"50%"}}
+                  alt=""
                 />
               ))}
           </Carousel>
         ) : (
-          <Card cover={<img src={Laptop} className="mb-3 card-image" />}></Card>
+          <Card cover={<img src={Laptop} className="mb-3 card-image" alt="" />}></Card>
         )}
 
         <Tabs type="card">

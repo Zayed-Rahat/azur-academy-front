@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, Badge } from "antd";
 import {
-  AppstoreOutlined,
   SettingOutlined,
   UserOutlined,
   UserAddOutlined,

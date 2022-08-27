@@ -23,9 +23,9 @@ const Shop = () => {
   const [ok, setOk] = useState(false);
   const [categories, setCategories] = useState([]);
   const [categoryIds, setCategoryIds] = useState([]);
-  const [star, setStar] = useState("");
+  const [ setStar] = useState("");
   const [subs, setSubs] = useState([]);
-  const [sub, setSub] = useState("");
+  const [ setSub] = useState("");
 
   let dispatch = useDispatch();
   let { search } = useSelector((state) => ({ ...state }));
