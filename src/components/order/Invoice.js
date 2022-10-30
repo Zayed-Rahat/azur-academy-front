@@ -28,7 +28,7 @@ const Invoice = ({ order }) => (
       <Table data={order.products}>
         <TableBody>
           <DataTableCell getContent={(x) => x.product.title} />
-          <DataTableCell getContent={(x) => `BDT${x.product.price}`} />
+          <DataTableCell getContent={(x) => `BDT  ${x.product.price}`} />
         </TableBody>
       </Table>
 
@@ -48,9 +48,9 @@ const Invoice = ({ order }) => (
           {order.orderStatus}
         </Text>
         {"\n"}
-        <Text>
-          Total Paid: {"       "}
-          {order.paymentIntent.amount}
+        <Text style={{ fontWeight: "bold" }}>
+          Amount Paid / Total After Discount: BDT {"  "}
+         {order.paymentIntent.amount/100}
         </Text>
       </Text>
 

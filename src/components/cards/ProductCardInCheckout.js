@@ -47,28 +47,8 @@ const ProductCardInCheckout = ({ p }) => {
         </td>
         <td>{p.title}</td>
         <td>BDT {p.price}</td>
-      {/*   <td>
-          <select
-            onChange={handleColorChange}
-            name="color"
-            className="form-control"
-          >
-            {p.color ? (
-              <option value={p.color}>{p.color}</option>
-            ) : (
-              <option>Select</option>
-            )}
-            {colors
-              .filter((c) => c !== p.color)
-              .map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-          </select>
-        </td> */}
 
-       {/*  
+     {/*  
         <td className="text-center">
           <input
             type="number"
